@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "pharma-papers"
+version = "0.1.0"
+description = "Tool to fetch research papers with pharmaceutical company affiliations"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "pharma_papers"}]
+
+[tool.poetry.dependencies]
+python = "3.13.1"
+requests = "^2.31.0"
+typer = {extras = ["all"], version = "^0.9.0"}
+pandas = "^2.1.0"
+typing-extensions = "^4.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.7.0"
+mypy = "^1.5.1"
+isort = "^5.12.0"
+
+[tool.poetry.scripts]
+get-papers-list = "pharma_papers.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.13.1"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+strict_optional = true
+
+
